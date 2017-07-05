@@ -15,7 +15,7 @@ namespace CSharpp
         int k;
         int tahminSayi;
 
-        static int tahminSayisi = 0;
+        static int tahminSayisi = 1;
 
         public Oyun(int max)
         {
@@ -46,7 +46,6 @@ namespace CSharpp
         private void tahmin()
         {
             Console.WriteLine("İlk tamininizi giriniz:");       
-            tahminSayisi++;
             for (int i = 0; ; i++)
             {
                 int deger = Convert.ToInt32(Console.ReadLine());
@@ -73,7 +72,7 @@ namespace CSharpp
         private void tahmin(int sinir)
         {
             Console.WriteLine("İlk tamininizi giriniz:");
-            tahminSayisi++;
+
             for (int i = 0; i < sinir; i++)
             {
                 int deger = Convert.ToInt32(Console.ReadLine());
