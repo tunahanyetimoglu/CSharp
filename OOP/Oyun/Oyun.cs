@@ -25,6 +25,7 @@ namespace CSharpp
             Console.WriteLine("İsminizi giriniz.");
             string isim = Console.ReadLine();
             this.isim = isim;
+            Console.WriteLine("0 ile {0} arasında bir sayı tahmin ediniz.",max);
         }
        
       public Oyun(int min , int max)
@@ -36,6 +37,7 @@ namespace CSharpp
             Console.WriteLine("İsminizi giriniz.");
             string isim = Console.ReadLine();
             this.isim = isim;
+            Console.WriteLine("{0} ile {1} arasında bir sayı tahmin ediniz.",min,max);
         }
             
 
@@ -50,7 +52,7 @@ namespace CSharpp
                 int deger = Convert.ToInt32(Console.ReadLine());
                 if (deger == tahminSayi)
                 {
-                    Console.WriteLine("Tebrikler {0}. tahmininzde buldunuz.", tahminSayisi);
+                    Console.WriteLine("Tebrikler {0} {1}. tahmininzde buldunuz.",isim, tahminSayisi);
                     
                 }
                 else if (deger < tahminSayi)
@@ -106,8 +108,7 @@ namespace CSharpp
                 Console.WriteLine("Sınırsız tahmin için 1, sınırlı sayıda tahmin için 2");
                 int q = Convert.ToInt32(Console.ReadLine());
                 if (q == 1)
-                {
-                    Console.WriteLine("1 ile 100 arasında bir sayı tahmin ediniz.");
+                {   
                     tahmin();
                 }
                 else if (q == 2)
