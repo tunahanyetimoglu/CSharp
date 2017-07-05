@@ -22,6 +22,11 @@ namespace CSharpp
             n3.yazdır();
             n4.yazdır();
 
+            Console.WriteLine(n.Equals(n3));  //Referans farklı olduğundan false döner
+            Console.WriteLine(n3 == n);       // Kendimiz override ettiğimiz için true döner
+            Console.WriteLine(n4 == n3);
+            Console.WriteLine(n4 != n);
+
             Console.ReadKey();
 
         }
