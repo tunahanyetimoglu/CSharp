@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpp
+namespace CSharp
 {
     class Komplex
     {
@@ -60,7 +60,7 @@ namespace CSharpp
             if (this.sanal > 0)
                 Console.WriteLine("{0} + {1} i",this.gercek, this.sanal);
             else
-                Console.WriteLine("{0} {1}i", this.gercek, this.sanal);
+                Console.WriteLine("{0} - {1}i", this.gercek, -this.sanal);
         }
 
         public static Komplex operator+(Komplex a, Komplex b)
@@ -69,5 +69,33 @@ namespace CSharpp
             int s1 = a.sanal + b.sanal;
             return new Komplex(r1, s1);
         }
+
+        public static bool operator==(Komplex a,Komplex b)
+        {
+            if (a.sanal == b.sanal && a.gercek == b.gercek)
+                return true;
+            else
+                return false;
+        }
+
+        public static bool operator!=(Komplex a,Komplex b)
+        {
+            return !(a == b);
+        }
+        
+        public static implicit operator int(Komplex a)
+        {
+            return a.gercek;
+        }
+
+   /*   public override bool Equals(Object obj)
+        {
+            Komplex K = (Komplex)obj;
+
+            if (this.sanal == K.sanal && this.gercek == K.gercek)
+                return true;
+            else
+                return false;
+        }  */
     }
 }
