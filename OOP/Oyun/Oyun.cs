@@ -33,7 +33,13 @@ namespace CSharpp
             Random r = new Random();
             this.max = max;
             this.min = min;
-            tahminSayi = r.Next(min,max);
+            if( min < max)
+                tahminSayi = r.Next(min,max);
+            else if ( min > max)
+                tahminSayi = r.Next(max,min);
+            else
+                new Sayi(max);
+          
             Console.WriteLine("İsminizi giriniz.");
             string isim = Console.ReadLine();
             this.isim = isim;
