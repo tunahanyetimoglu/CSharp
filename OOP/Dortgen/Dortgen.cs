@@ -40,7 +40,7 @@ namespace CSharpp
                 this.Boy = value;
             }
         }
-        public int AlanHesapla()
+        private int AlanHesapla()
         {
             int alan = getEn() * boy;
             return alan;
