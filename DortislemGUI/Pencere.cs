@@ -29,8 +29,7 @@ namespace CSharp
 
             s1 = new Label();
             s1.Text = "Sayi 1";
-            s1.SetBounds(10, 10, 42, 30);
-            Controls.Add(s1);
+            s1.SetBounds(10, 10, 42, 30);            Controls.Add(s1);
 
             s2 = new Label();
             s2.Text = "Sayi 2";
@@ -55,6 +54,8 @@ namespace CSharp
             t3 = new TextBox();
             t3.SetBounds(60, 90, 50, 70);
             Controls.Add(t3);
+            t3.Enabled = false;
+            
 
 ////////////////////////////////////////////////////////////////////
 
