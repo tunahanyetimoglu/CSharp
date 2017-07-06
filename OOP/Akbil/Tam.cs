@@ -15,11 +15,7 @@ namespace Akbil
 
         public override void krediGuncelle()
         {
-         if (Yas < 30)
-                {
-                    Kredi = Kredi - 1;
-                }
-                else if (30 <= Yas && Yas < 60)
+         if  (30 <= Yas && Yas < 60)
                 {
                     Kredi = Kredi - 2;
                 }
