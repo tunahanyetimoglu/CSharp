@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace Akbil
             }
             else if (30 <= Yas && Yas < 60)
             {
+                
                 Kredi = Kredi - 2;
             }
             else
