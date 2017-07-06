@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FormsApplication
+namespace CSharp
 {
     class Pencere:Form
     {
