@@ -1,0 +1,24 @@
+
+İş Kuralları
+
+•	Bir üniversitede en az bir fakülte olmak zorundadır.
+•	Bir fakültenin en az bir bölümü olmak zorundadır ancak birden fazla bölümü de olabilir. Bir bölüm ise yalnızca bir fakültenin altında yer alabilir
+•	Bir fakültenin yalnızca bir tane dekanı (öğretim elemanları içerisinden) olmak zorundadır. Bir öğretim elemanı en fazla bir fakültenin dekanı olabilir.
+•	Bir öğretim elemanı yalnızca bir bölüme bağlıdır. Bir bölümün en az bir öğretim elemanı olmak zorundadır ancak birden fazla öğretim elemanı da olabilir.
+•	Bir bölüm yalnızca bir öğretim elemanı tarafından yönetilmek zorundadır. Bir öğretim elemanı ise en fazla bir bölümün yöneticiliğini yapabilir.
+•	Bir bölümün en az bir dersi olmalıdır.Dersler bölüm kurulurken belirlenmelidir.
+•	Bölümde çalışan öğretim elemanları  dersler üzerinde değişiklik yapabilir ve yeni dersler önerebilir.
+•	Her dönem başında açılacak dersler belirlenmiş olmalıdır
+•	Bir öğretim elemanı çok sayıda öğrencinin danışman hocası olabilir. Bir öğrencinin danışmanlığını yalnızca bir tane öğretim elemanı yapabilir.
+•	Bir bölümün çok sayıda öğrencisi mevcuttur. Bir öğrenci, en fazla bir tane bölümün öğrencisidir.
+•	Her öğrencinin belli bir kredi limiti(ders kredisi) vardır.
+•	Öğrenciler her dönem başı belirlenmiş dersleri kredi sınırlarınca seçebilirler.
+•	Öğrenciler seçilen derslerin vize ,  final ,proje ,ödev notlarını ve kendi biglilerini sistemden görebilir.
+•	Öğretim elemanları sisteme not girebilir.(Yönetici)
+•	Bir öğretim elemanı birden fazla (açılan) ders verebilir. Bir (açılan) ders yalnızca bir öğretim elemanı tarafından verilmelidir.
+•	Bir bölüm çok sayıda katalog ders sunabilir. Bir katalog ders yalnızca bir bölüm tarafından sunulur.
+•	Bir katalog dersin çok sayıda açılan dersi (şubesi) olabilir. Bir açılan dersin yalnızca bir tane katalog dersi olmalıdır.
+•	Bir öğrenci birden fazla derse kayıt yaptırabilir. Bir derse birden fazla öğrenci kayıt olabilir.
+•	Bir açılan ders yalnızca bir derslikte işlenir. Bir derslikte çok sayıda açılan ders işlenebilir. 
+•	Bir derslik yalnızca bir binada bulunur. Bir binada çok sayıda derslik bulunabilir.
+
