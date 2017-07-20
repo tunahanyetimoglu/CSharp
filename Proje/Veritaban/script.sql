@@ -1,6 +1,6 @@
 USE [DERSKAYITSISTEM]
 GO
-/****** Object:  Table [dbo].[ACILANDERS]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  Table [dbo].[ACILANDERS]    Script Date: 20.07.2017 14:55:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -18,7 +18,7 @@ CREATE TABLE [dbo].[ACILANDERS](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[BINA]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  Table [dbo].[BINA]    Script Date: 20.07.2017 14:55:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33,7 +33,7 @@ CREATE TABLE [dbo].[BINA](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[BOLUM]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  Table [dbo].[BOLUM]    Script Date: 20.07.2017 14:55:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -49,7 +49,7 @@ CREATE TABLE [dbo].[BOLUM](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[BOLUMBASKANI]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  Table [dbo].[BOLUMBASKANI]    Script Date: 20.07.2017 14:55:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -65,7 +65,7 @@ CREATE TABLE [dbo].[BOLUMBASKANI](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[DEKANL]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  Table [dbo].[DEKANL]    Script Date: 20.07.2017 14:55:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -81,7 +81,7 @@ CREATE TABLE [dbo].[DEKANL](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Derslik]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  Table [dbo].[Derslik]    Script Date: 20.07.2017 14:55:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -96,7 +96,7 @@ CREATE TABLE [dbo].[Derslik](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[FAKULTE]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  Table [dbo].[FAKULTE]    Script Date: 20.07.2017 14:55:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -111,7 +111,7 @@ CREATE TABLE [dbo].[FAKULTE](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[KATALOGDERS]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  Table [dbo].[KATALOGDERS]    Script Date: 20.07.2017 14:55:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -128,7 +128,7 @@ CREATE TABLE [dbo].[KATALOGDERS](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[KAYIT]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  Table [dbo].[KAYIT]    Script Date: 20.07.2017 14:55:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -145,7 +145,7 @@ CREATE TABLE [dbo].[KAYIT](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[LOGIN]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  Table [dbo].[LOGIN]    Script Date: 20.07.2017 14:55:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -160,7 +160,7 @@ CREATE TABLE [dbo].[LOGIN](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[OGRENCI]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  Table [dbo].[OGRENCI]    Script Date: 20.07.2017 14:55:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -170,6 +170,8 @@ CREATE TABLE [dbo].[OGRENCI](
 	[BolumNo] [int] NOT NULL,
 	[DanismanID] [int] NOT NULL,
 	[kredi] [int] NOT NULL,
+	[OgrenciAD] [nchar](50) NOT NULL,
+	[OgrenciSOYAD] [nchar](50) NOT NULL,
  CONSTRAINT [PK_OGRENCI] PRIMARY KEY CLUSTERED 
 (
 	[ogrenciNo] ASC
@@ -177,7 +179,7 @@ CREATE TABLE [dbo].[OGRENCI](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[OGRETIMUYESI]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  Table [dbo].[OGRETIMUYESI]    Script Date: 20.07.2017 14:55:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -194,7 +196,7 @@ CREATE TABLE [dbo].[OGRETIMUYESI](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[UNIVERSITE]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  Table [dbo].[UNIVERSITE]    Script Date: 20.07.2017 14:55:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -214,26 +216,31 @@ ALTER TABLE [dbo].[KAYIT] ADD  CONSTRAINT [DF_KAYIT_tarih]  DEFAULT (getdate()) 
 GO
 ALTER TABLE [dbo].[ACILANDERS]  WITH CHECK ADD  CONSTRAINT [FK_ACILANDERS_Derslik] FOREIGN KEY([DerslikNo])
 REFERENCES [dbo].[Derslik] ([DerslikNo])
+ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[ACILANDERS] CHECK CONSTRAINT [FK_ACILANDERS_Derslik]
 GO
 ALTER TABLE [dbo].[ACILANDERS]  WITH CHECK ADD  CONSTRAINT [FK_ACILANDERS_KATALOGDERS] FOREIGN KEY([DersKodu])
 REFERENCES [dbo].[KATALOGDERS] ([DersKodu])
+ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[ACILANDERS] CHECK CONSTRAINT [FK_ACILANDERS_KATALOGDERS]
 GO
 ALTER TABLE [dbo].[ACILANDERS]  WITH CHECK ADD  CONSTRAINT [FK_ACILANDERS_OGRETIMUYESI] FOREIGN KEY([TCNo])
 REFERENCES [dbo].[OGRETIMUYESI] ([TCNo])
+ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[ACILANDERS] CHECK CONSTRAINT [FK_ACILANDERS_OGRETIMUYESI]
 GO
 ALTER TABLE [dbo].[BOLUM]  WITH CHECK ADD  CONSTRAINT [FK_BOLUM_FAKULTE] FOREIGN KEY([FakulteNo])
 REFERENCES [dbo].[FAKULTE] ([FakulteNo])
+ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[BOLUM] CHECK CONSTRAINT [FK_BOLUM_FAKULTE]
 GO
 ALTER TABLE [dbo].[BOLUMBASKANI]  WITH CHECK ADD  CONSTRAINT [FK_BOLUMBASKANI_BOLUM2] FOREIGN KEY([BolumNo])
 REFERENCES [dbo].[BOLUM] ([BolumNo])
+ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[BOLUMBASKANI] CHECK CONSTRAINT [FK_BOLUMBASKANI_BOLUM2]
 GO
@@ -244,6 +251,7 @@ ALTER TABLE [dbo].[BOLUMBASKANI] CHECK CONSTRAINT [FK_BOLUMBASKANI_OGRETIMUYESI]
 GO
 ALTER TABLE [dbo].[DEKANL]  WITH CHECK ADD  CONSTRAINT [FK_DEKANL_FAKULTE] FOREIGN KEY([dekanID])
 REFERENCES [dbo].[FAKULTE] ([FakulteNo])
+ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[DEKANL] CHECK CONSTRAINT [FK_DEKANL_FAKULTE]
 GO
@@ -254,11 +262,13 @@ ALTER TABLE [dbo].[DEKANL] CHECK CONSTRAINT [FK_DEKANL_OGRETIMUYESI]
 GO
 ALTER TABLE [dbo].[Derslik]  WITH CHECK ADD  CONSTRAINT [FK_Derslik_BINA] FOREIGN KEY([BinaNo])
 REFERENCES [dbo].[BINA] ([BinaNo])
+ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[Derslik] CHECK CONSTRAINT [FK_Derslik_BINA]
 GO
 ALTER TABLE [dbo].[FAKULTE]  WITH CHECK ADD  CONSTRAINT [FK_FAKULTE_UNIVERSITE] FOREIGN KEY([universiteNo])
 REFERENCES [dbo].[UNIVERSITE] ([universiteNo])
+ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[FAKULTE] CHECK CONSTRAINT [FK_FAKULTE_UNIVERSITE]
 GO
@@ -269,16 +279,19 @@ ALTER TABLE [dbo].[KATALOGDERS] CHECK CONSTRAINT [FK_KATALOGDERS_BOLUM]
 GO
 ALTER TABLE [dbo].[KAYIT]  WITH CHECK ADD  CONSTRAINT [FK_KAYIT_ACILANDERS] FOREIGN KEY([ADersKodu])
 REFERENCES [dbo].[ACILANDERS] ([ADersKodu])
+ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[KAYIT] CHECK CONSTRAINT [FK_KAYIT_ACILANDERS]
 GO
 ALTER TABLE [dbo].[KAYIT]  WITH CHECK ADD  CONSTRAINT [FK_KAYIT_OGRENCI] FOREIGN KEY([ogrenciNo])
 REFERENCES [dbo].[OGRENCI] ([ogrenciNo])
+ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[KAYIT] CHECK CONSTRAINT [FK_KAYIT_OGRENCI]
 GO
 ALTER TABLE [dbo].[LOGIN]  WITH CHECK ADD  CONSTRAINT [FK_LOGIN_OGRETIMUYESI] FOREIGN KEY([userID])
 REFERENCES [dbo].[OGRETIMUYESI] ([TCNo])
+ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[LOGIN] CHECK CONSTRAINT [FK_LOGIN_OGRETIMUYESI]
 GO
@@ -297,7 +310,7 @@ REFERENCES [dbo].[BOLUM] ([BolumNo])
 GO
 ALTER TABLE [dbo].[OGRETIMUYESI] CHECK CONSTRAINT [FK_OGRETIMUYESI_BOLUM]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_DELETE_ACILANDERS]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_DELETE_ACILANDERS]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -311,7 +324,7 @@ DELETE FROM ACILANDERS WHERE AdersKodu=@ADersKodu
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_DELETE_BINA]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_DELETE_BINA]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -324,7 +337,7 @@ DELETE FROM BINA WHERE BinaNo = @BinaNo
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_DELETE_BOLUM]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_DELETE_BOLUM]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -336,12 +349,13 @@ AS
 
 DELETE FROM KATALOGDERS WHERE BolumNo = @BolumNo;
 DELETE FROM BOLUMBASKANI WHERe BolumNo = @BolumNo;
+DELETE FROM OGRENCI WHERE BolumNo = @BolumNo;
 DELETE FROM OGRETIMUYESI WHERE BolumNo = @BolumNo;
 DELETE FROM BOLUM WHERE BolumNo=@BolumNo
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_DELETE_BOLUMBASKANI]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_DELETE_BOLUMBASKANI]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -354,7 +368,7 @@ DELETE FROM BOLUMBASKANI WHERE BaskanID = @BaskanID
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_DELETE_DEKANL]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_DELETE_DEKANL]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -367,7 +381,7 @@ DELETE FROM DEKANL WHERE dekanID = @dekanID
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_DELETE_DERSLIK]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_DELETE_DERSLIK]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -380,7 +394,7 @@ DELETE FROM Derslik WHERE DerslikNo = @DerslikNo
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_DELETE_FAKULTE]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_DELETE_FAKULTE]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -392,7 +406,7 @@ AS
 DELETE FROM FAKULTE WHERE FakulteNo = @FakulteNO
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_DELETE_KATALOGDERS]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_DELETE_KATALOGDERS]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -406,7 +420,7 @@ DELETE FROM KATALOGDERS WHERE DersKodu = @DersKodu;
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_DELETE_KAYIT]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_DELETE_KAYIT]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -419,7 +433,7 @@ DELETE FROM KAYIT WHERE ogrenciNo = @ogrenciNo
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_DELETE_LOGIN]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_DELETE_LOGIN]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -430,7 +444,7 @@ create proc [dbo].[SP_DELETE_LOGIN]
 AS
 delete from LOGIN  WHERE userID = @userID
 GO
-/****** Object:  StoredProcedure [dbo].[SP_DELETE_OGRENCI]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_DELETE_OGRENCI]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -447,7 +461,7 @@ BEGIN
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_DELETE_OGRETIMUYESI]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_DELETE_OGRETIMUYESI]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -464,22 +478,34 @@ DELETE FROM OGRETIMUYESI WHERE TcNO = @TcNo;
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_DELETE_UNIVERSITE]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_DELETE_UNIVERSITE]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE proc [dbo].[SP_DELETE_UNIVERSITE]
-@universiteNo INT
+@universiteNo int
 AS
 
-DELETE from UNIVERSITE;
+DELETE from	ACILANDERS  
+DELETE from KATALOGDERS 
+DELETE from BOLUMBASKANI
+DELETE from DEKANL
+DELETE from LOGIN 
+DELETE from OGRETIMUYESI 
+DELETE from KAYIT 
+DELETE from OGRENCI 
+DELETE from Derslik
+DELETE from BINA
+DELETE from BOLUM  
+DELETE from FAKULTE 
+DELETE from UNIVERSITE where universiteNo = @universiteNo
 
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INSERT_ACILANDERS]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INSERT_ACILANDERS]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -497,7 +523,7 @@ create proc [dbo].[SP_INSERT_ACILANDERS]
  insert into ACILANDERS(ADersKodu,DersKodu,TCNo,DerslikNo,Sube)
  Values(@ADersKodu,@DersKodu,@TCNo,@DerslikNo,@Sube)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INSERT_BINA]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INSERT_BINA]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -512,7 +538,7 @@ create proc [dbo].[SP_INSERT_BINA]
  insert into BINA(BinaAdi,BinaNo)
  Values(@BinaAdi,@BinaNo)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INSERT_BOLUM]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INSERT_BOLUM]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -528,7 +554,7 @@ CREATE proc [dbo].[SP_INSERT_BOLUM]
 INSERT INTO BOLUM(FakulteNo,BolumNo,BolumAdı)
  VALUES(@FakulteNo,@BolumNo,@BolumAdı)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INSERT_BOLUMBASKANI]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INSERT_BOLUMBASKANI]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -544,7 +570,7 @@ as
  VALUES (@BaskanID,@BolumNo)
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INSERT_DEKANL]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INSERT_DEKANL]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -561,7 +587,7 @@ CREATE proc [dbo].[SP_INSERT_DEKANL]
  insert into DEKANL(dekanID,TCNo)
  values(@dekanID,@TCNo)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INSERT_Derslik]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INSERT_Derslik]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -576,7 +602,7 @@ create proc [dbo].[SP_INSERT_Derslik]
  insert into Derslik(DerslikNo,BinaNo)
  Values(@DerslikNo,@BinaNo)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INSERT_FAKULTE]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INSERT_FAKULTE]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -593,7 +619,7 @@ INSERT INTO FAKULTE(universiteNo,FakulteNo)
  VALUES(@universiteNo,@FakulteNo)
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INSERT_KATALOGDERS]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INSERT_KATALOGDERS]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -610,7 +636,7 @@ CREATE proc [dbo].[SP_INSERT_KATALOGDERS]
  insert into KATALOGDERS(BolumNo,DersKodu,DersAdi,Kredi)
  Values(@BolumNo,@DersKodu,@DersAdi,@Kredi)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INSERT_KAYIT]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INSERT_KAYIT]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -625,23 +651,24 @@ create proc [dbo].[SP_INSERT_KAYIT]
  insert into KAYIT(ogrenciNo,ADersKodu)
  Values(@ogrenciNo,@ADersKodu)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INSERT_LOGIN]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INSERT_LOGIN]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
 
-create proc [dbo].[SP_INSERT_LOGIN]
+CREATE proc [dbo].[SP_INSERT_LOGIN]
 
- @userID int
+ @userID int,
+ @password int
 
  as
 
- insert into LOGIN(userID)
- values(@userID)
+ insert into LOGIN(userID,password)
+ values(@userID,@password)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INSERT_OGRENCI]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INSERT_OGRENCI]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -651,14 +678,16 @@ CREATE proc [dbo].[SP_INSERT_OGRENCI]
  @ogrenciNo int,
  @bolumNo int,
  @danismanNo int,
- @kredi int
+ @kredi int,
+ @ogrenciAD nchar(50),
+ @ogrenciSOYAD nchar(50)
 
  AS 
 
- insert into OGRENCI(ogrenciNo,BolumNo,DanismanID,kredi)
- Values(@ogrenciNo,@bolumNo,@danismanNo,@kredi)
+ insert into OGRENCI(ogrenciAD,ogrenciSOYAD,ogrenciNo,BolumNo,DanismanID,kredi)
+ Values(@ogrenciAD,@ogrenciSOYAD,@ogrenciNo,@bolumNo,@danismanNo,@kredi)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INSERT_OGRETIMUYESI]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INSERT_OGRETIMUYESI]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -674,7 +703,7 @@ AS
 INSERT INTO OGRETIMUYESI(TCNo,BolumNo,Ad,SoyAd)
  VALUES(@TCNO,@BolumNo,@ADI,@SOYADI)
 GO
-/****** Object:  StoredProcedure [dbo].[SP_INSERT_UNIVERSITE]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_INSERT_UNIVERSITE]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -692,7 +721,31 @@ INSERT INTO UNIVERSITE(TELEFONU,ADI)
  VALUES(@TELEFONU,@UNIADI)
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UPDATE_ACILANDERS]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_SELECT_LOGINLIST]    Script Date: 20.07.2017 14:55:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+create proc [dbo].[SP_SELECT_LOGINLIST]
+AS
+SELECT * FROM LOGIN
+GO
+/****** Object:  StoredProcedure [dbo].[SP_SELECT_UNIVERSITELIST]    Script Date: 20.07.2017 14:55:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+create proc [dbo].[SP_SELECT_UNIVERSITELIST]
+AS
+SELECT * FROM UNIVERSITE
+
+GO
+/****** Object:  StoredProcedure [dbo].[SP_UPDATE_ACILANDERS]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -715,7 +768,7 @@ UPDATE ACILANDERS SET
 						Sube = @Sube
 				 WHERE ADersKodu = @ADersKodu
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UPDATE_BINA]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_UPDATE_BINA]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -738,7 +791,7 @@ UPDATE BINA SET
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UPDATE_BOLUM]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_UPDATE_BOLUM]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -763,7 +816,7 @@ UPDATE BOLUM SET
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UPDATE_BOLUMBASKANI]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_UPDATE_BOLUMBASKANI]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -779,7 +832,7 @@ UPDATE BOLUMBASKANI SET
 
 				 WHERE BolumNo = @BolumNo
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UPDATE_DEKANL]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_UPDATE_DEKANL]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -801,7 +854,7 @@ UPDATE DEKANL SET
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UPDATE_Derslik]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_UPDATE_Derslik]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -824,7 +877,7 @@ UPDATE Derslik SET
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UPDATE_FAKULTE]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_UPDATE_FAKULTE]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -846,7 +899,7 @@ UPDATE FAKULTE SET
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UPDATE_KATALOGDERS]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_UPDATE_KATALOGDERS]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -873,7 +926,7 @@ UPDATE KATALOGDERS SET
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UPDATE_KAYIT]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_UPDATE_KAYIT]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -897,7 +950,7 @@ UPDATE KAYIT SET
 				 WHERE ogrenciNo = @ogrenciNo
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UPDATE_LOGIN]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_UPDATE_LOGIN]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -919,7 +972,7 @@ UPDATE LOGIN SET
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UPDATE_OGRENCI]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_UPDATE_OGRENCI]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -947,7 +1000,7 @@ UPDATE OGRENCI SET
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UPDATE_OGRETIMUYESI]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_UPDATE_OGRETIMUYESI]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -974,7 +1027,7 @@ UPDATE OGRETIMUYESI SET
 
 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_UPDATE_UNIVERSITE]    Script Date: 19.07.2017 15:09:19 ******/
+/****** Object:  StoredProcedure [dbo].[SP_UPDATE_UNIVERSITE]    Script Date: 20.07.2017 14:55:42 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
