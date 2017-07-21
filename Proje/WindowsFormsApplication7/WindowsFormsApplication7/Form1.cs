@@ -57,30 +57,28 @@ namespace WindowsFormsApplication7
         {
             string userId = textBox1.Text;
             string password = textBox2.Text;
+            if (password == "" || userId == "")
+                MessageBox.Show("Kullancı adı ve şifre giriniz.");
+            else {
 
-            string qS = "SELECT COUNT(*) FROM LOGIN WHERE userID='" + textBox1.Text + "' AND password='" + textBox2.Text + "'";
+                using (SqlCommand StrQuer = new SqlCommand("SELECT * FROM LOGIN WHERE userID= @userID AND password = @password", BAGLANTI.Conn))
+                {
+                    StrQuer.Parameters.AddWithValue("@userID", userId);
+                    StrQuer.Parameters.AddWithValue("@password", password);
+                    SqlDataReader rdr = StrQuer.ExecuteReader();
 
-            SqlCommand cmm = new SqlCommand(qS, BAGLANTI.Conn);
-            cmm.Parameters.AddWithValue("@userID", userId);
-            cmm.Parameters.AddWithValue("@password", password);
-
-            SqlDataReader rdr = cmm.ExecuteReader();
-
-            if (rdr.HasRows && password != "" && userId != "")
-            {
-                MessageBox.Show("Login Success!");
-          
+                    if (rdr.HasRows)
+                    {
+                        MessageBox.Show("Login Success!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("invalid login");                   
+                    }
+                    rdr.Close();
+                    
+                }
             }
-            else
-            {
-                MessageBox.Show("invalid login");
-            
-            }
-            rdr.Close();
-
         }
-
-
     }
-
 }

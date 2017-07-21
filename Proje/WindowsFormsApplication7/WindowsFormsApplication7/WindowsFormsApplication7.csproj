@@ -54,7 +54,7 @@
     <Compile Include="ENTITYLAYER\EBOLUMBASKANI.cs" />
     <Compile Include="ENTITYLAYER\EDEKANL.cs" />
     <Compile Include="ENTITYLAYER\EDerslik.cs" />
-    <Compile Include="ENTITYLAYER\EFAKULTe.cs" />
+    <Compile Include="ENTITYLAYER\EFAKULTE.cs" />
     <Compile Include="ENTITYLAYER\EKATALOGDERS.cs" />
     <Compile Include="ENTITYLAYER\EKAYIT.cs" />
     <Compile Include="ENTITYLAYER\ELOGIN.cs" />
@@ -62,7 +62,12 @@
     <Compile Include="ENTITYLAYER\EOGRETIMUYESI.cs" />
     <Compile Include="ENTITYLAYER\EUNIVERSITE.cs" />
     <Compile Include="FACADELAYER\BAGLANTI.cs" />
+    <Compile Include="FACADELAYER\FFAKULTE.cs" />
+    <Compile Include="FACADELAYER\FKATALOGDERS.cs" />
+    <Compile Include="FACADELAYER\FKAYIT.cs" />
     <Compile Include="FACADELAYER\FLOGIN.cs" />
+    <Compile Include="FACADELAYER\FOGRENCI.cs" />
+    <Compile Include="FACADELAYER\FOGRETIMUYESI.cs" />
     <Compile Include="FACADELAYER\FUNIVERSITE.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

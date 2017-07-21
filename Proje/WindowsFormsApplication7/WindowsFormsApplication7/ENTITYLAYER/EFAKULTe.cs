@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ENTITYLAYER
 {
-    class EFAKULTe
+    class EFAKULTE
     {
         int _universiteNo;
         int _FakulteNo;

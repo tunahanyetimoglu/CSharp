@@ -1,4 +1,5 @@
 ﻿using ENTITYLAYER;
+using FACADELAYER;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FACADELAYER
+namespace WindowsFormsApplication7.FACADELAYER
 {
-    class FLOGIN
+    class FFAKULTE
     {
-        public static int Insert(ELOGIN item)
+        public static int Insert(EFAKULTE item)
         {
-            SqlCommand com = new SqlCommand("SP_INSERT_LOGIN", BAGLANTI.Conn);
+            SqlCommand com = new SqlCommand("SP_INSERT_FAKULTE", BAGLANTI.Conn);
             com.CommandType = CommandType.StoredProcedure;
 
             int satir = -1;
@@ -22,8 +23,9 @@ namespace FACADELAYER
             {
                 if (com.Connection.State != ConnectionState.Open)
                     com.Connection.Open();
-                com.Parameters.AddWithValue("Kullanıcı Adı : ", item.UserID);
-                com.Parameters.AddWithValue(" Şifre  : ", item.Password);
+                com.Parameters.AddWithValue("universiteNo  : ", item.UniversiteNo);
+                com.Parameters.AddWithValue("FakulteNo  : ", item.FakulteNo);
+            
             }
             catch
             {
@@ -35,27 +37,31 @@ namespace FACADELAYER
             }
             return satir;
         }
-        public static ELOGIN Select(int id)
+        public static EFAKULTE Select(int id)
         {
-            ELOGIN item = null;
-            SqlCommand com = new SqlCommand("SP_SELECT_UNIVERSITE", BAGLANTI.Conn);
+            SqlCommand com = new SqlCommand("SP_SELECT_FAKULTE", BAGLANTI.Conn);
             com.CommandType = CommandType.StoredProcedure;
-            SqlDataReader rdr = com.ExecuteReader();
+
+            EFAKULTE item = null;
             try
-            {               
+            {
                 if (com.Connection.State != ConnectionState.Open)
                     com.Connection.Open();
-                com.Parameters.AddWithValue("Username : ", item.UserID);
+                com.Parameters.AddWithValue("FakulteNo  : ", id);
+
+                SqlDataReader rdr = com.ExecuteReader();
                 if (rdr.HasRows)
                 {
                     while (rdr.Read())
                     {
-                        item = new ELOGIN();
-                        item.UserID = Convert.ToInt32(rdr["userID"]);
-                        item.Password = Convert.ToInt32(rdr["password"]);
+                        item = new EFAKULTE();
+                        item.FakulteNo = Convert.ToInt32(rdr["FakulteNo"]);
+                        item.UniversiteNo = Convert.ToInt32(rdr["universiteNo"]);
+
 
                     }
                 }
+                rdr.Close();
             }
             catch
             {
@@ -63,22 +69,20 @@ namespace FACADELAYER
             }
             finally
             {
-                rdr.Close();
                 com.Connection.Close();
             }
-           
             return item;
         }
-        public Boolean Update(ELOGIN item)
+        public Boolean Update(EFAKULTE item)
         {
             Boolean sonuc = false;
-            SqlCommand com = new SqlCommand("SP_UPDATE_LOGIN", BAGLANTI.Conn);
+            SqlCommand com = new SqlCommand("SP_UPDATE_FAKULTE", BAGLANTI.Conn);
             com.CommandType = CommandType.StoredProcedure;
 
             if (com.Connection.State != ConnectionState.Open)
                 com.Connection.Open();
-            com.Parameters.AddWithValue("Kullanıcı Adı : ", item.UserID);
-            com.Parameters.AddWithValue(" Şifre  : ", item.Password);
+            com.Parameters.AddWithValue("universiteNo  : ", item.UniversiteNo);
+            com.Parameters.AddWithValue("FakulteNo  : ", item.FakulteNo);
             sonuc = com.ExecuteNonQuery() > 0;
             com.Connection.Close();
             return sonuc;
@@ -86,40 +90,38 @@ namespace FACADELAYER
         public Boolean Delete(int id)
         {
             Boolean sonuc = false;
-            SqlCommand com = new SqlCommand("SP_DELETE_LOGIN", BAGLANTI.Conn);
+            SqlCommand com = new SqlCommand("SP_DELETE_FAKULTE", BAGLANTI.Conn);
             if (com.Connection.State != ConnectionState.Open)
                 com.Connection.Open();
-            com.Parameters.AddWithValue("Kullanıcı Adı : ", id);
+            com.Parameters.AddWithValue("FakulteNO : ", id);
             sonuc = com.ExecuteNonQuery() > 0;
             com.Connection.Close();
             return sonuc;
         }
-
-        public static List<ELOGIN> SelectList()
+        public static List<EFAKULTE> SelectList()
         {
-            List<ELOGIN> itemList = null;
-
-            SqlCommand com = new SqlCommand("SP_SELECT_LOGINLIST", BAGLANTI.Conn);
+            SqlCommand com = new SqlCommand("SP_SELECT_FAKULTE", BAGLANTI.Conn);
             com.CommandType = CommandType.StoredProcedure;
-            SqlDataReader rdr = com.ExecuteReader();
 
+            List<EFAKULTE> itemList = null;
             try
             {
 
+
                 if (com.Connection.State != ConnectionState.Open)
                     com.Connection.Open();
+                SqlDataReader rdr = com.ExecuteReader();
                 if (rdr.HasRows)
                 {
-                    itemList = new List<ELOGIN>();
+                    itemList = new List<EFAKULTE>();
                     while (rdr.Read())
                     {
-                        ELOGIN item = new ELOGIN();
-                        item.UserID = Convert.ToInt32(rdr["userID"]);
-                        item.Password = Convert.ToInt32(rdr["password"]);
-                        itemList.Add(item);
+                        EFAKULTE item = new EFAKULTE();
+                        item.FakulteNo = Convert.ToInt32(rdr["FakulteNo"]);
+                        item.UniversiteNo = Convert.ToInt32(rdr["universiteNo"]);
                     }
                 }
-
+                rdr.Close();
             }
             catch
             {
@@ -127,7 +129,6 @@ namespace FACADELAYER
             }
             finally
             {
-                rdr.Close();
                 com.Connection.Close();
             }
             return itemList;
