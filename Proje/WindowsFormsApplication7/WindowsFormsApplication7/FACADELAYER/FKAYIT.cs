@@ -99,7 +99,7 @@ namespace WindowsFormsApplication7.FACADELAYER
         }
         public static List<EKAYIT> SelectList()
         {
-            SqlCommand com = new SqlCommand("SP_SELECT_KAYIT", BAGLANTI.Conn);
+            SqlCommand com = new SqlCommand("SP_SELECT_KAYITLIST", BAGLANTI.Conn);
             com.CommandType = CommandType.StoredProcedure;
 
             List<EKAYIT> itemList = null;

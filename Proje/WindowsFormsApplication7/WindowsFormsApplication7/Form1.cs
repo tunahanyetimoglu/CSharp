@@ -26,10 +26,6 @@ namespace WindowsFormsApplication7
 
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -55,30 +51,46 @@ namespace WindowsFormsApplication7
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string userId = textBox1.Text;
-            string password = textBox2.Text;
+
+                string userId = textBox1.Text;
+                string password = textBox2.Text;
             if (password == "" || userId == "")
+            {
                 MessageBox.Show("Kullancı adı ve şifre giriniz.");
+            }
             else {
 
                 using (SqlCommand StrQuer = new SqlCommand("SELECT * FROM LOGIN WHERE userID= @userID AND password = @password", BAGLANTI.Conn))
                 {
                     StrQuer.Parameters.AddWithValue("@userID", userId);
                     StrQuer.Parameters.AddWithValue("@password", password);
-                    SqlDataReader rdr = StrQuer.ExecuteReader();
+                    try {
+                        if (StrQuer.Connection.State != ConnectionState.Open)
+                            StrQuer.Connection.Open();
+                        SqlDataReader rdr = StrQuer.ExecuteReader();
 
-                    if (rdr.HasRows)
-                    {
-                        MessageBox.Show("Login Success!");
+                        if (rdr.HasRows)
+                        {
+                            Form3 pencere = new Form3();
+                            pencere.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("invalid login");
+                        }
+                        rdr.Close();
                     }
-                    else
-                    {
-                        MessageBox.Show("invalid login");                   
-                    }
-                    rdr.Close();
-                    
+                    catch { }
                 }
             }
+          
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form2 pencere = new Form2();
+            pencere.Show();
+
         }
     }
 }

@@ -100,7 +100,7 @@ namespace WindowsFormsApplication7.FACADELAYER
         }
         public static List<EFAKULTE> SelectList()
         {
-            SqlCommand com = new SqlCommand("SP_SELECT_FAKULTE", BAGLANTI.Conn);
+            SqlCommand com = new SqlCommand("SP_SELECT_FAKULTELIST", BAGLANTI.Conn);
             com.CommandType = CommandType.StoredProcedure;
 
             List<EFAKULTE> itemList = null;

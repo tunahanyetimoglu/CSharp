@@ -99,11 +99,13 @@ namespace FACADELAYER
         }
         public static List<EUNIVERSITE> SelectList()
         {
+            SqlCommand com = new SqlCommand("SP_SELECT_UNIVERSITELIST", BAGLANTI.Conn);
+            com.CommandType = CommandType.StoredProcedure;
+
             List<EUNIVERSITE> itemList = null;
             try
             {
-                SqlCommand com = new SqlCommand("SP_SELECT_UNIVERSITELIST", BAGLANTI.Conn);
-                com.CommandType = CommandType.StoredProcedure;
+               
 
                 if (com.Connection.State != ConnectionState.Open)
                     com.Connection.Open();
@@ -125,6 +127,10 @@ namespace FACADELAYER
             catch
             {
                 itemList = null;
+            }
+            finally
+            {
+                com.Connection.Close();
             }
             return itemList;
         }

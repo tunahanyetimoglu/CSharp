@@ -104,7 +104,7 @@ namespace WindowsFormsApplication7.FACADELAYER
         }
         public static List<EKATALOGDERS> SelectList()
         {
-            SqlCommand com = new SqlCommand("SP_SELECT_KATALOGDERS", BAGLANTI.Conn);
+            SqlCommand com = new SqlCommand("SP_SELECT_KATALOGDERSLIST", BAGLANTI.Conn);
             com.CommandType = CommandType.StoredProcedure;
 
             List<EKATALOGDERS> itemList = null;

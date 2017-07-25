@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApplication7.FACADELAYER
+namespace FACADELAYER
 {
     class FOGRENCI
     {
@@ -110,7 +110,7 @@ namespace WindowsFormsApplication7.FACADELAYER
         }
         public static List<EOGRENCI> SelectList()
         {
-            SqlCommand com = new SqlCommand("SP_SELECT_OGRENCI", BAGLANTI.Conn);
+            SqlCommand com = new SqlCommand("SP_SELECT_OGRENCILIST", BAGLANTI.Conn);
             com.CommandType = CommandType.StoredProcedure;
 
             List<EOGRENCI> itemList = null;
@@ -127,12 +127,13 @@ namespace WindowsFormsApplication7.FACADELAYER
                     while (rdr.Read())
                     {
                         EOGRENCI item = new EOGRENCI();
-                        item.OgrenciNo = Convert.ToInt32(rdr["ogrenciNO"]);
+                        item.OgrenciNo = Convert.ToInt32(rdr["ogrenciNo"]);
                         item.BolumNo = Convert.ToInt32(rdr["BolumNo"]);
-                        item.OgrenciAD = rdr["ogrenciAD"].ToString();
-                        item.OgrenciSOYAD = rdr["ogrenciSOYADI"].ToString();
-                        item.DanismanID = Convert.ToInt32(rdr["danismanID"]);
+                        item.OgrenciAD = rdr["OgrenciAD"].ToString();
+                        item.OgrenciSOYAD = rdr["OgrenciSOYAD"].ToString();
+                        item.DanismanID = Convert.ToInt32(rdr["DanismanID"]);
                         item.Kredi = Convert.ToInt32(rdr["kredi"]);
+                        itemList.Add(item);
                     }
                 }
                 rdr.Close();

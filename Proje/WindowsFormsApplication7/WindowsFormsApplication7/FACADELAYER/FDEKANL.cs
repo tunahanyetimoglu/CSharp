@@ -1,4 +1,5 @@
 ﻿using ENTITYLAYER;
+using FACADELAYER;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace FACADELAYER
 {
-    class FOGRETIMUYESI
+    class FDEKANL
     {
-        public static int Insert(EOGRETIMUYESI item)
+        public static int Insert(EDEKANL item)
         {
-            SqlCommand com = new SqlCommand("SP_INSERT_OGRETIMUYESI", BAGLANTI.Conn);
+            SqlCommand com = new SqlCommand("SP_INSERT_DEKANL", BAGLANTI.Conn);
             com.CommandType = CommandType.StoredProcedure;
 
             int satir = -1;
@@ -22,10 +23,9 @@ namespace FACADELAYER
             {
                 if (com.Connection.State != ConnectionState.Open)
                     com.Connection.Open();
-                com.Parameters.AddWithValue("TcNO  : ", item.TcNo);
-                com.Parameters.AddWithValue("BolumNo : ", item.BolumNo);
-                com.Parameters.AddWithValue("ADI: ", item.Ad);
-                com.Parameters.AddWithValue("SoyADI: ", item.SoyAd);
+                com.Parameters.AddWithValue("dekanID  : ", item.DekanID);
+                com.Parameters.AddWithValue("TCNo  : ", item.TCNo);
+    
             }
             catch
             {
@@ -37,28 +37,27 @@ namespace FACADELAYER
             }
             return satir;
         }
-        public static EOGRETIMUYESI Select(int id)
+        public static EDEKANL Select(int id)
         {
-            SqlCommand com = new SqlCommand("SP_SELECT_OGRETIMUYESI", BAGLANTI.Conn);
+            SqlCommand com = new SqlCommand("SP_SELECT_DEKANL", BAGLANTI.Conn);
             com.CommandType = CommandType.StoredProcedure;
 
-            EOGRETIMUYESI item = null;
+            EDEKANL item = null;
             try
             {
                 if (com.Connection.State != ConnectionState.Open)
                     com.Connection.Open();
-                com.Parameters.AddWithValue("TcNo: ", item.TcNo);
+                com.Parameters.AddWithValue("dekanID  : ", id);
 
                 SqlDataReader rdr = com.ExecuteReader();
                 if (rdr.HasRows)
                 {
                     while (rdr.Read())
                     {
-                        item = new EOGRETIMUYESI();
-                        item.TcNo = Convert.ToInt32(rdr["TcNO"]);
-                        item.BolumNo = Convert.ToInt32(rdr["BolumNo"]);
-                        item.Ad = rdr["ADI"].ToString();
-                        item.SoyAd = rdr["SOYADI"].ToString();
+                        item = new EDEKANL();
+                        item.DekanID = Convert.ToInt32(rdr["dekanID"]);
+                        item.TCNo = Convert.ToInt32(rdr["TcNO"]);
+
 
                     }
                 }
@@ -74,18 +73,16 @@ namespace FACADELAYER
             }
             return item;
         }
-        public Boolean Update(EOGRETIMUYESI item)
+        public Boolean Update(EDEKANL item)
         {
             Boolean sonuc = false;
-            SqlCommand com = new SqlCommand("SP_UPDATE_OGRETIMUYESI", BAGLANTI.Conn);
+            SqlCommand com = new SqlCommand("SP_UPDATE_DEKANL", BAGLANTI.Conn);
             com.CommandType = CommandType.StoredProcedure;
 
             if (com.Connection.State != ConnectionState.Open)
                 com.Connection.Open();
-            com.Parameters.AddWithValue("TcNO  : ", item.TcNo);
-            com.Parameters.AddWithValue("BolumNo : ", item.BolumNo);
-            com.Parameters.AddWithValue("ADI : ", item.Ad);
-            com.Parameters.AddWithValue("SoyADI: ", item.SoyAd);
+            com.Parameters.AddWithValue("dekanID  : ", item.DekanID);
+            com.Parameters.AddWithValue("TCNo  : ", item.TCNo);
             sonuc = com.ExecuteNonQuery() > 0;
             com.Connection.Close();
             return sonuc;
@@ -93,20 +90,20 @@ namespace FACADELAYER
         public Boolean Delete(int id)
         {
             Boolean sonuc = false;
-            SqlCommand com = new SqlCommand("SP_DELETE_OGRETIMUYESI", BAGLANTI.Conn);
+            SqlCommand com = new SqlCommand("SP_DELETE_DEKANL", BAGLANTI.Conn);
             if (com.Connection.State != ConnectionState.Open)
                 com.Connection.Open();
-            com.Parameters.AddWithValue("TcNO : ", id);
+            com.Parameters.AddWithValue("dekanID  : ", id);
             sonuc = com.ExecuteNonQuery() > 0;
             com.Connection.Close();
             return sonuc;
         }
-        public static List<EOGRETIMUYESI> SelectList()
+        public static List<EDEKANL> SelectList()
         {
-            SqlCommand com = new SqlCommand("SP_SELECT_OGRETIMUYESILIST", BAGLANTI.Conn);
+            SqlCommand com = new SqlCommand("SP_SELECT_DEKANLIST", BAGLANTI.Conn);
             com.CommandType = CommandType.StoredProcedure;
 
-            List<EOGRETIMUYESI> itemList = null;
+            List<EDEKANL> itemList = null;
             try
             {
 
@@ -116,15 +113,12 @@ namespace FACADELAYER
                 SqlDataReader rdr = com.ExecuteReader();
                 if (rdr.HasRows)
                 {
-                    itemList = new List<EOGRETIMUYESI>();
+                    itemList = new List<EDEKANL>();
                     while (rdr.Read())
                     {
-                        EOGRETIMUYESI item = new EOGRETIMUYESI();
-                        item.TcNo = Convert.ToInt32(rdr["TcNO"]);
-                        item.BolumNo = Convert.ToInt32(rdr["BolumNo"]);
-                        item.Ad = rdr["ADI"].ToString();
-                        item.SoyAd = rdr["SOYADI"].ToString();
-                        itemList.Add(item);
+                        EDEKANL item = new EDEKANL();
+                        item.DekanID = Convert.ToInt32(rdr["dekanID"]);
+                        item.TCNo = Convert.ToInt32(rdr["TcNO"]);
                     }
                 }
                 rdr.Close();
