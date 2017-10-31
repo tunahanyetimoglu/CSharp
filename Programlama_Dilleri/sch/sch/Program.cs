@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace sch
 {
@@ -32,13 +33,11 @@ namespace sch
 
             return Array.Exists(valid_args,element => element == arg);
         }
-
         static void Main(string[] args)
         {
             Student student = new Student();
 
             string path = "../../okul.csv";
-
 
             if (pathController(path))
             {
@@ -52,28 +51,28 @@ namespace sch
 
                     else if (args.Length > 1)
                     {
-                        Console.WriteLine("Hatali Arguman sayisi");
+                        Console.WriteLine("Hatali Arguman sayisi.");
                     }
                     else if (arg_controller(args))
                     {
                         student.print(student.ListFiltering(query, args));
                     }
-                    else
+                    else if (Regex.IsMatch(args[0], @"^[a-zA-Z]+$"))
                     {
-                        Console.WriteLine("Hatalı arguman girişi");
+                        Console.WriteLine("Hatalı arguman girisi : {0}", args[0]);
                     }
+                    else
+                        Console.WriteLine("devre numarası 1 - 4 arasında olmalıdır");
                 }
                 else
                 {
                     System.Environment.Exit(1);
                 }
             }
-
             else
             {
                 System.Environment.Exit(1);
             }
-            Console.ReadKey();
         }
 
     }
