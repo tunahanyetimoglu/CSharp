@@ -1,0 +1,10 @@
+c:\users\abra\documents\visual studio 2017\Projects\sch\sch\bin\Debug\sch.exe.config
+c:\users\abra\documents\visual studio 2017\Projects\sch\sch\bin\Debug\sch.exe
+c:\users\abra\documents\visual studio 2017\Projects\sch\sch\bin\Debug\sch.pdb
+c:\users\abra\documents\visual studio 2017\Projects\sch\sch\bin\Debug\TinyCsvParser.dll
+c:\users\abra\documents\visual studio 2017\Projects\sch\sch\obj\Debug\sch.csprojResolveAssemblyReference.cache
+c:\users\abra\documents\visual studio 2017\Projects\sch\sch\obj\Debug\sch.exe
+c:\users\abra\documents\visual studio 2017\Projects\sch\sch\obj\Debug\sch.pdb
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\sch\bin\Debug\CsvHelper.dll
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\sch\bin\Debug\CsvHelper.pdb
+C:\Users\ABRA\documents\visual studio 2017\Projects\sch\sch\bin\Debug\CsvHelper.xml
