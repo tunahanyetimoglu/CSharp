@@ -1,0 +1,9 @@
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri3\tt_veri3\obj\Debug\tt_veri3.csprojResolveAssemblyReference.cache
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri3\tt_veri3\obj\Debug\tt_veri3.Form1.resources
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri3\tt_veri3\obj\Debug\tt_veri3.Properties.Resources.resources
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri3\tt_veri3\obj\Debug\tt_veri3.csproj.GenerateResource.Cache
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri3\tt_veri3\bin\Debug\tt_veri3.exe.config
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri3\tt_veri3\bin\Debug\tt_veri3.exe
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri3\tt_veri3\bin\Debug\tt_veri3.pdb
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri3\tt_veri3\obj\Debug\tt_veri3.exe
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri3\tt_veri3\obj\Debug\tt_veri3.pdb

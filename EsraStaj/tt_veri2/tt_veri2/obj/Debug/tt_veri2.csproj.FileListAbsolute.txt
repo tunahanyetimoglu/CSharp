@@ -1,0 +1,13 @@
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri2\tt_veri2\bin\Debug\tt_veri2.exe.config
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri2\tt_veri2\bin\Debug\tt_veri2.exe
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri2\tt_veri2\bin\Debug\tt_veri2.pdb
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri2\tt_veri2\obj\Debug\tt_veri2.csprojResolveAssemblyReference.cache
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri2\tt_veri2\obj\Debug\Interop.AccWizObjects.dll
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri2\tt_veri2\obj\Debug\Interop.LCC11.dll
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri2\tt_veri2\obj\Debug\Interop.MSXML2.dll
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri2\tt_veri2\obj\Debug\tt_veri2.csproj.ResolveComReference.cache
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri2\tt_veri2\obj\Debug\tt_veri2.Form1.resources
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri2\tt_veri2\obj\Debug\tt_veri2.Properties.Resources.resources
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri2\tt_veri2\obj\Debug\tt_veri2.csproj.GenerateResource.Cache
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri2\tt_veri2\obj\Debug\tt_veri2.exe
+c:\users\esragul\documents\visual studio 2017\Projects\tt_veri2\tt_veri2\obj\Debug\tt_veri2.pdb
